@@ -1,6 +1,6 @@
 <?php 
 
-session_start(); // give me access to $_SESSION
+session_start(); // gives me access to $_SESSION
 
 unset($_SESSION['logged']); // unsets $_SESSION['logged']
 
