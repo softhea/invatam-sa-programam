@@ -1,12 +1,13 @@
-<?php 
+<?php
 
 session_start();
+
+require 'migrations.php';
 
 if (
 	isset($_POST['login']) 
 ) {
 	$query = "SELECT id FROM users WHERE username = '".$_POST['username']."' AND password = '".$_POST['password']."'";
-	$databaseConnection = mysqli_connect('localhost', 'root', '', 'invatam_sa_programam');
 	$result = mysqli_query($databaseConnection, $query);
 	$user = mysqli_fetch_assoc($result);
 	if ($user !== null) {
