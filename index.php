@@ -2,7 +2,7 @@
 
 session_start();
 
-require 'migrations.php';
+//require 'migrations.php';
 
 if (
 	isset($_POST['login']) 
