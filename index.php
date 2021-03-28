@@ -2,7 +2,7 @@
 
 session_start();
 
-$databaseConnection = mysqli_connect('localhost', 'root', '');
+$databaseConnection = mysqli_connect('localhost', 'root', '', 'invatam_sa_programam');
 
 if (
 	isset($_POST['login']) 
