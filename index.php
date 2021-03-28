@@ -2,7 +2,7 @@
 
 session_start();
 
-//require 'migrations.php';
+$databaseConnection = mysqli_connect('localhost', 'root', '');
 
 if (
 	isset($_POST['login']) 
