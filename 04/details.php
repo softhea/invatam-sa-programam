@@ -2,6 +2,11 @@
 
 session_start();
 
+$logged = false;	
+if (isset($_SESSION['logged'])) {
+	$logged = true;	
+}
+
 include 'menu.php';
 
 if (!$logged) {
@@ -25,17 +30,17 @@ while ($user = mysqli_fetch_assoc($result)) {
 
 <?php if (count($users) > 0): ?>
     <table border="1">
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
-        </tr>
+	    <tr>
+		    <th>User ID</th>
+		    <th>Username</th>
+	    </tr>
   
-	    <?php foreach ($users as $user): ?>
+        <?php foreach ($users as $user): ?>
             <tr>
                 <td><?=$user['id']?></td>
                 <td><?=$user['username']?></td>
             </tr>
-	    <?php endforeach; ?>
+        <?php endforeach; ?>
 	
     </table>
 <?php endif; ?>
