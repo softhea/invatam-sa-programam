@@ -17,7 +17,6 @@ $users = [];
 while ($user = mysqli_fetch_assoc($result)) {
 	$users[] = $user;
 }
-
 ?>
 
 <h1>Users</h1>
@@ -25,22 +24,18 @@ while ($user = mysqli_fetch_assoc($result)) {
 <p>All Users</p>
 
 <?php if (count($users) > 0): ?>
-
- <table border="1">
-	<tr>
-		<th>User ID</th>
-		<th>Username</th>
-	</tr>
+    <table border="1">
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+        </tr>
   
-	<?php foreach ($users as $user): ?>
+	    <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?=$user['id']?></td>
+                <td><?=$user['username']?></td>
+            </tr>
+	    <?php endforeach; ?>
 	
-		<tr>
-			<td><?=$user['id']?></td>
-			<td><?=$user['username']?></td>
-		</tr>
-	
-	<?php endforeach; ?>
-	
-</table> 
-
+    </table>
 <?php endif; ?>
