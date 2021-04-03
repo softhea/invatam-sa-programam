@@ -4,7 +4,7 @@ session_start();
 
 $error = '';
 if (isset($_POST['login'])) {
-	$query = "SELECT id FROM users WHERE username = '".$_POST['username']."' AND password = '".md5($_POST['password'])."'";
+	$query = "SELECT id FROM users WHERE username = '".$_POST['username']."' AND password = '".md5($_POST['password'])."' AND register_code IS NULL";
 
     $databaseConnection = mysqli_connect('localhost', 'root', '', 'invatam_sa_programam');
 	$result = mysqli_query($databaseConnection, $query);
@@ -25,6 +25,7 @@ include 'menu.php';
 		<input type="text" name="username" value="" placeholder="Username">
 		<input type="password" name="password" value="" placeholder="Password">
 		<input type="submit" name="login" value="Login">
+		<a href="register.php">Register</a>
 	</form>
 
 	<?php if ($error !== ''): ?>
