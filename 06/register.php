@@ -2,8 +2,6 @@
 
 session_start();
 
-$username = '';
-$email = '';
 $error = '';
 if (isset($_POST['register'])) {
 	$username = trim($_POST['username']);
@@ -22,7 +20,7 @@ if (isset($_POST['register'])) {
 				$code = md5(time().rand(100000, 999999));
 				$link = 'http://localhost/invatam-sa-programam/confirm.php?register_code='.$code;
 				
-				$query = "SELECT id FROM users WHERE username = '".$username."' OR email = '".$email."'";
+				$query = "SELECT id FROM users WHERE username = '".$_POST['username']."' OR email = '".$_POST['email']."'";
 
 				$databaseConnection = mysqli_connect('localhost', 'root', '', 'invatam_sa_programam');
 				$result = mysqli_query($databaseConnection, $query);
@@ -36,9 +34,6 @@ if (isset($_POST['register'])) {
 					mysqli_query($databaseConnection, $query);
 		
 					mail('php@example.com', 'Invatam Sa Programam Registration Confirmation', 'Click on: '.$link.' to finalize registration!');
-			
-					header('location: index.php?message=Please check email and click on received link to confirm registration!'); // redirects to index.php
-					exit;
 				}			
 			}
 		}
@@ -48,8 +43,8 @@ if (isset($_POST['register'])) {
 include 'menu.php';
 ?>
 <form method="POST">
-	<input type="text" name="username" value="<?=$username?>" placeholder="Username">
-	<input type="text" name="email" value="<?=$email?>" placeholder="Email Address">
+	<input type="text" name="username" value="" placeholder="Username">
+	<input type="text" name="email" value="" placeholder="Email Address">
 	<input type="password" name="password" value="" placeholder="Password">
 	<input type="submit" name="register" value="Register">
 	<a href="index.php">Login</a>
