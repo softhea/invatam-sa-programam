@@ -6,7 +6,7 @@ if (!$logged) {
 	die('You are not logged!');
 }
 
-$query = "SELECT id, username, register_code FROM users";
+$query = "SELECT id, username, email, register_code FROM users";
 
 $result = mysqli_query($databaseConnection, $query);
 
