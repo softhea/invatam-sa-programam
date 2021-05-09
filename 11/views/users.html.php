@@ -1,6 +1,6 @@
 <h1>Users</h1>
 
-<p><a href="add-user.php">Add New User</a></p>
+<p>All Users</p>
 
 <?php if (count($users) > 0): ?>
     <table border="1">
