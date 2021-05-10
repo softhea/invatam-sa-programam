@@ -49,6 +49,7 @@ include 'menu.php';
 	<input type="submit" name="register" value="Register">
 	<a href="index.php">Login</a>
 </form>
+
 <?php if ($error !== ''): ?>
 	<p><?=$error?></p>
 <?php endif; ?>
