@@ -6,5 +6,4 @@
 		<a href="logout.php">Logout</a>
 		<span>Salut, <?=$userName?>!</span>
 	<?php endif; ?>
-
 </p>
