@@ -4,19 +4,18 @@
 
 <?php if (count($users) > 0): ?>
     <table border="1">
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
+		<tr>
+			<th>User ID</th>
+			<th>Username</th>
 			<th>Active</th>
-        </tr>
+		</tr>
  
-	    <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?=$user['id']?></td>
-                <td><?=$user['username']?></td>
+		<?php foreach ($users as $user): ?>
+			<tr>
+				<td><?=$user['id']?></td>
+				<td><?=$user['username']?></td>
 				<td><?=$user['register_code'] === null ? 'Yes' : 'No'?></td>
-            </tr>
-	    <?php endforeach; ?>
-	
+			</tr>
+		<?php endforeach; ?>	
     </table>
 <?php endif; ?>

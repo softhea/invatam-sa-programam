@@ -9,7 +9,6 @@
 	<?php if ($error !== ''): ?>
 		<p><?=$error?></p>
 	<?php endif; ?>
-
 <?php endif; ?>
 
 <?php if (isset($_GET['message'])): ?>
