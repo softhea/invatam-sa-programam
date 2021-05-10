@@ -30,12 +30,12 @@ while ($user = mysqli_fetch_assoc($result)) {
             <th>Username</th>
         </tr>
   
-	    <?php foreach ($users as $user): ?>
-            <tr>
-                <td><?=$user['id']?></td>
-                <td><?=$user['username']?></td>
-            </tr>
-	    <?php endforeach; ?>
+		<?php foreach ($users as $user): ?>
+			<tr>
+				<td><?=$user['id']?></td>
+				<td><?=$user['username']?></td>
+			</tr>
+		<?php endforeach; ?>
 	
     </table>
 <?php endif; ?>
