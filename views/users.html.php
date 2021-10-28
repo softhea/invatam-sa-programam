@@ -1,7 +1,12 @@
-<h1>Users</h1>
+<?php 
+include 'views/header.html.php';
+include 'views/menu.html.php';
+?>
+
+<h1 id="user-title">Users</h1>
 
 <?php if ($_SESSION['role_id'] <= 2): ?>
-<p><a href="add-user.php">Add New User</a></p>
+<p><a href="add-user.php" id="user-add-new">Add New User</a></p>
 <?php endif; ?>
 
 <?php if ($message !== ''): ?>
@@ -22,8 +27,8 @@
 		<?php foreach ($users as $user): ?>
 			<tr>
 				<td><?=$user['id']?></td>
-				<td><?=$user['username']?></td>
-				<td><?=$user['email']?></td>
+				<td class="user-username"><?=$user['username']?></td>
+				<td class="user-email"><?=$user['email']?></td>
 				<td><?=$roles[$user['role_id']]?></td>
 				<td><?=$user['register_code'] === null ? 'Yes' : 'No'?></td>
 				<td>
@@ -45,3 +50,7 @@
 		<?php endforeach; ?>
 	</table>
 <?php endif; ?>
+
+<?php 
+include 'views/footer.html.php';
+?>
