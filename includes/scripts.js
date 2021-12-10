@@ -1,3 +1,3 @@
 document.getElementById('user-title').onclick = function () {
-	alert('You clicked me!');
+	//alert('You clicked me!');
 };

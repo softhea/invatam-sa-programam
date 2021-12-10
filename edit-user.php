@@ -10,9 +10,7 @@ $email = '';
 $error = '';
 
 $userId = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
-$query = "SELECT * FROM users WHERE id = ".$userId;
-$result = mysqli_query($databaseConnection, $query);
-$user = mysqli_fetch_assoc($result);
+$user = findUser($userId);
 if ($user === null) {
 	$error = 'User not found!';
 } else {
@@ -48,26 +46,11 @@ if ($user === null) {
 					) {
 						$error = 'No update!';
 					} else {
-						$query = 
-							"SELECT id FROM users 
-							WHERE 
-							(username = '".$newUsername."' OR email = '".$newEmail."')
-							AND id != ".(int)$user['id'];
-
-						$result = mysqli_query($databaseConnection, $query);
-						$otherUser = mysqli_fetch_assoc($result);
-						if ($$otherUser !== null) {
+						$otherUser = findOtherUserByUsernameOrEmail((int)$user['id'], $newUsername, $newEmail);
+						if ($otherUser !== null) {
 							$error = 'User Already Exists!';
-						} else {
-							$query = 
-								"UPDATE users SET 
-								username = '".$newUsername."'
-								, email = '".$newEmail."'
-								, role_id = '".$newRoleId."'
-								".$updatePassword."
-								WHERE id = ".(int)$user['id'];
-								//die($query);
-							mysqli_query($databaseConnection, $query);
+						} else {							
+							updateUser((int)$user['id'], $newUsername, $newEmail, $newRoleId, $updatePassword);
 					
 							redirect('users.php?message=User '.$newUsername.' has been updated!');
 						}		

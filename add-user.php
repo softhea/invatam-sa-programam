@@ -24,10 +24,8 @@ if (isset($_POST['save'])) {
 			} else {
 				$password = md5($password);
 				
-				$query = "SELECT id FROM users WHERE username = '".$username."' OR email = '".$email."'";
-
-				$result = mysqli_query($databaseConnection, $query);
-				$user = mysqli_fetch_assoc($result);
+				$user = findUserByUsernameOrEmail($username, $email);
+				
 				if ($user !== null) {
 					$error = 'User Already Exists!';
 				} else {
@@ -35,10 +33,7 @@ if (isset($_POST['save'])) {
 					if ($roleId === 0) {
 						$error = 'Invalid role!';
 					} else {
-						$query = 
-							"INSERT INTO users (username, email, password, register_code, role_id) 
-							VALUES ('".$username."', '".$email."', '".$password."', NULL, ".$roleId.")";
-						mysqli_query($databaseConnection, $query);
+						createUser($username, $email, $password, $roleId);
 				
 						redirect('users.php');	
 					}
