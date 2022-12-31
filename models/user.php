@@ -1,5 +1,7 @@
 <?php
 
+require 'UserModel.php';
+
 const ROLE_ID_SUPER_ADMIN = 1;
 const ROLE_ID_ADMIN = 2;
 const ROLE_ID_USER = 3;
@@ -21,13 +23,13 @@ function getUsers(): array
 		$where = " WHERE role_id >= ".ROLE_ID_ADMIN;	
 	}
 
-	$query = "SELECT id, username, email, register_code, role_id FROM users ".$where;
+	$query = "SELECT id, username2, email, register_code, role_id FROM users ".$where;
 
 	$result = mysqli_query($databaseConnection, $query);
 
 	$users = [];
 	while ($user = mysqli_fetch_assoc($result)) {
-		$users[] = $user;
+		$users[] = new User($user);
 	}
 	
 	return $users;
