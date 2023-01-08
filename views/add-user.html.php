@@ -6,14 +6,16 @@
 	<input type="text" name="email" value="<?=$email?>" placeholder="Email Address"><br>
 	<br>
 	<select name="role_id">
-		<?php foreach ($roles as $roleId => $roleName): ?>
+		<?php foreach ($roles as $id => $roleName): ?>
 			<?php 
 				if (
-					$_SESSION['role_id'] <= $roleId &&
-					$roleId !== 1
+					$_SESSION['role_id'] <= $id &&
+					$id !== 1
 				): 
 			?>
-				<option value="<?=$roleId?>" ><?=$roleName?></option>
+				<option value="<?=$id?>" 
+					<?php if ($id === $roleId) echo 'selected'; ?> 
+				><?=$roleName?></option>
 			<?php endif; ?>
 		<?php endforeach; ?>
 	</select><br>

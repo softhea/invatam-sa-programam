@@ -23,7 +23,7 @@ function getUsers(): array
 		$where = " WHERE role_id >= ".ROLE_ID_ADMIN;	
 	}
 
-	$query = "SELECT id, username2, email, register_code, role_id FROM users ".$where;
+	$query = "SELECT id, username, email, register_code, role_id FROM users ".$where;
 
 	$result = mysqli_query($databaseConnection, $query);
 
@@ -69,16 +69,6 @@ function findUser(int $id): ?array
 	$result = mysqli_query($databaseConnection, $query);
 	
 	return mysqli_fetch_assoc($result);
-}
-
-function createUser(string $username, string $email, string $password, int $roleId): void
-{
-	global $databaseConnection;
-	
-	$query = 
-		"INSERT INTO users (username, email, password, register_code, role_id) 
-		VALUES ('".$username."', '".$email."', '".$password."', NULL, ".$roleId.")";
-	mysqli_query($databaseConnection, $query);
 }
 							
 function updateUser(int $id, string $newUsername, string $newEmail, int $newRoleId, string $updatePassword): void
