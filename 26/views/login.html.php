@@ -3,15 +3,18 @@ include 'views/header.html.php';
 ?>
 
 <form method="POST">
-	<input type="text" name="username" value="<?=$username?>" placeholder="Username">
-	<input type="text" name="email" value="<?=$email?>" placeholder="Email Address">
+	<input type="text" name="username" value="" placeholder="Username">
 	<input type="password" name="password" value="" placeholder="Password">
-	<input type="submit" name="register" value="Register">
-	<a href="login.php">Login</a>
+	<input type="submit" name="login" value="Login">
+	<a href="register.php">Register</a>
 </form>
 
 <?php if ($error !== ''): ?>
 	<p class="error"><?=$error?></p>
+<?php endif; ?>
+
+<?php if ($message !== ''): ?>
+	<p class="message"><?=$message?></p>
 <?php endif; ?>
 
 <?php 
