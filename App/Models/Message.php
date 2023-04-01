@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use App\Database\DB;
+
 class Message
 {
 	public ?int $id = null;

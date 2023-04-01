@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Database\DB;
+use App\Models\Message;
+
 class MessageRepository
 {
 	public function findBySenderOrNotHiddenByReceiver(int $userId): array

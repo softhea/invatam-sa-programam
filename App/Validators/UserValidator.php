@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Validators;
+
+use App\Models\User;
+use App\Repositories\UserRepository;
+
 class UserValidator
 {
     private ?User $user = null;

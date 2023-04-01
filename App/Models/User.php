@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use App\Database\DB;
+
 class User 
 {
 	const ROLE_ID_SUPER_ADMIN = 1;

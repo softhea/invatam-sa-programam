@@ -2,14 +2,9 @@
 
 session_start();
 
+require __DIR__.'/../vendor/autoload.php';
+
 require 'config.php';
-require __DIR__.'/DB.php';
-require __DIR__.'/../models/User.php';
-require __DIR__.'/../models/Message.php';
-require __DIR__.'/../repositories/UserRepository.php';
-require __DIR__.'/../repositories/MessageRepository.php';
-require __DIR__.'/../services/MessageService.php';
-require __DIR__.'/../validators/UserValidator.php';
 
 function redirect($uri)
 {

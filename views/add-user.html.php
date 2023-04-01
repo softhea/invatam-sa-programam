@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\User;
+
 include 'views/header.html.php';
 include 'views/menu.html.php';
 ?>

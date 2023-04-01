@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Repositories;
+
+use App\Database\DB;
+use App\Models\User;
+
 class UserRepository
 {
     public function find(int $id): ?User

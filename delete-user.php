@@ -1,5 +1,7 @@
 <?php
 
+use App\Repositories\UserRepository;
+
 require 'includes/common.php';
 
 redirectIfNotLogged();

@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use App\Validators\UserValidator;
+
 require 'includes/common.php';
 
 redirectIfLogged();

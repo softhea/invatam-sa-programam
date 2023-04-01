@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use App\Repositories\MessageRepository;
+use App\Services\MessageService;
 
 require 'includes/common.php';
 

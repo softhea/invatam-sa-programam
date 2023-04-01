@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Database;
+
 class DB
 {
     private static $connection = null;

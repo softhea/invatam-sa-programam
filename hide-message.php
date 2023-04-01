@@ -1,5 +1,7 @@
 <?php
 
+use App\Repositories\MessageRepository;
+
 require 'includes/common.php';
 
 redirectIfNotLogged();
