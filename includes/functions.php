@@ -2,38 +2,34 @@
 
 use Core\Auth;
 
-require __DIR__.'/../vendor/autoload.php';
-
-require 'config.php';
-
-function redirect($uri)
+function redirect(string $uri): void
 {
 	header('location: '.$uri);
 	exit;
 }
 
-function redirectIfNotLogged()
+function redirectIfNotLogged(): void
 {
 	if (!Auth::isLogged()) {
 		redirect('login');
 	}
 }
 
-function redirectIfLogged()
+function redirectIfLogged(): void
 {
 	if (Auth::isLogged()) {
-		redirect('index.php');
+		redirect(HOME_URL);
 	}
 }
 
-function dump($text)
+function dump($text): void
 {
 	echo "<pre>";
 	var_dump($text);
 	echo "</pre>";
 }
 
-function dd($text)
+function dd($text): void
 {
 	dump($text);
 	die;
