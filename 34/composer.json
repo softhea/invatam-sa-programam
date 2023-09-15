@@ -1,0 +1,11 @@
+{
+    "name": "softhea/invatam-sa-programam",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "require": {}
+}

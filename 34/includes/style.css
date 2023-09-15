@@ -1,0 +1,28 @@
+.user-username {
+	color: blue;
+}
+
+.user-email {
+	color: red;
+}
+
+.error {
+	color: red;
+}
+
+.message {
+	color: green;
+}
+
+#user-add-new {
+	color: blue;
+	text-decoration: none;
+}
+
+#user-add-new:hover {
+	text-decoration: underline;
+}
+
+#user-title {
+	color: green;
+}
